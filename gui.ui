@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Web Scraper Control Panel</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow {
+    background-color: #F5F0FF;
+}
+
+QGroupBox {
+    background-color: #FFFFFF;
+    border: 2px solid #E8DCFF;
+    border-radius: 12px;
+    margin-top: 12px;
+    padding-top: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #6B4BA0;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 15px;
+    padding: 2px 8px;
+    background-color: #DFD3F5;
+    border-radius: 6px;
+    color: #5A3D8A;
+}
+
+QPushButton {
+    background-color: #D4C5F9;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 600;
+    color: #5A3D8A;
+    font-size: 12px;
+}
+
+QPushButton:hover {
+    background-color: #C4B0F0;
+}
+
+QPushButton:pressed {
+    background-color: #B49FE8;
+}
+
+QPushButton:disabled {
+    background-color: #E8E8E8;
+    color: #A0A0A0;
+}
+
+QPushButton#startButton {
+    background-color: #B8E6D5;
+    color: #2D6A4F;
+}
+
+QPushButton#startButton:hover {
+    background-color: #A0DCCA;
+}
+
+QPushButton#pauseResumeButton {
+    background-color: #FFE5B4;
+    color: #8B6914;
+}
+
+QPushButton#pauseResumeButton:hover {
+    background-color: #FFD89B;
+}
+
+QPushButton#stopButton {
+    background-color: #FFB8C6;
+    color: #8B2E3D;
+}
+
+QPushButton#stopButton:hover {
+    background-color: #FFA0B3;
+}
+
+QPushButton#loadPreviousButton {
+    background-color: #C8E0F9;
+    color: #2E5A8B;
+}
+
+QPushButton#loadPreviousButton:hover {
+    background-color: #B0D4F5;
+}
+
+QPushButton#sortButton {
+    background-color: #FFD4E5;
+    color: #8B2E5A;
+}
+
+QPushButton#sortButton:hover {
+    background-color: #FFBDD8;
+}
+
+QPushButton#addFilterButton {
+    background-color: #D4F9E6;
+    color: #2D6A4F;
+}
+
+QPushButton#addFilterButton:hover {
+    background-color: #BCEFD9;
+}
+
+QPushButton#applyFilterButton {
+    background-color: #D4F9E6;
+    color: #2D6A4F;
+}
+
+QPushButton#applyFilterButton:hover {
+    background-color: #BCEFD9;
+}
+
+QPushButton#clearFilterButton {
+    background-color: #FFE0CC;
+    color: #8B4513;
+}
+
+QPushButton#clearFilterButton:hover {
+    background-color: #FFD0B3;
+}
+
+QProgressBar {
+    border: 2px solid #E8DCFF;
+    border-radius: 8px;
+    background-color: #F9F5FF;
+    text-align: center;
+    font-weight: 600;
+    color: #6B4BA0;
+    height: 24px;
+}
+
+QProgressBar::chunk {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #D4C5F9, stop:1 #B8A8E8);
+    border-radius: 6px;
+    margin: 2px;
+}
+
+QLabel {
+    color: #5A3D8A;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+QLabel#sortTimeLabel {
+    background-color: #FFF9E6;
+    border: 2px solid #FFE5B4;
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: #8B6914;
+}
+
+QComboBox {
+    background-color: #FFFFFF;
+    border: 2px solid #E8DCFF;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: #5A3D8A;
+    font-weight: 500;
+}
+
+QComboBox:hover {
+    border: 2px solid #D4C5F9;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 20px;
+}
+
+QComboBox::down-arrow {
+    image: none;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #8B6FB8;
+    width: 0;
+    height: 0;
+    margin-right: 8px;
+}
+
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 2px solid #E8DCFF;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: #5A3D8A;
+    font-weight: 500;
+}
+
+QLineEdit:focus {
+    border: 2px solid #C4B0F0;
+}
+
+QRadioButton {
+    color: #5A3D8A;
+    font-weight: 500;
+    spacing: 8px;
+}
+
+QRadioButton::indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border: 2px solid #D4C5F9;
+    background-color: #FFFFFF;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #B8A8E8;
+    border: 2px solid #8B6FB8;
+}
+
+QRadioButton::indicator:hover {
+    border: 2px solid #B8A8E8;
+}
+
+QListWidget {
+    background-color: #FFFFFF;
+    border: 2px solid #E8DCFF;
+    border-radius: 8px;
+    padding: 4px;
+    color: #5A3D8A;
+}
+
+QListWidget::item {
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 2px;
+}
+
+QListWidget::item:selected {
+    background-color: #DFD3F5;
+    color: #5A3D8A;
+}
+
+QListWidget::item:hover {
+    background-color: #F0E8FF;
+}
+
+QTableWidget {
+    background-color: #FFFFFF;
+    alternate-background-color: #F9F5FF;
+    border: 2px solid #E8DCFF;
+    border-radius: 8px;
+    gridline-color: #F0E8FF;
+    color: #5A3D8A;
+}
+
+QTableWidget::item {
+    padding: 6px;
+}
+
+QTableWidget::item:selected {
+    background-color: #DFD3F5;
+    color: #5A3D8A;
+}
+
+QHeaderView::section {
+    background-color: #DFD3F5;
+    color: #5A3D8A;
+    padding: 8px;
+    border: none;
+    border-right: 1px solid #CFBFF0;
+    border-bottom: 2px solid #CFBFF0;
+    font-weight: 600;
+}
+
+QHeaderView::section:first {
+    border-top-left-radius: 6px;
+}
+
+QHeaderView::section:last {
+    border-top-right-radius: 6px;
+    border-right: none;
+}
+
+QScrollBar:vertical {
+    background-color: #F9F5FF;
+    width: 12px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #D4C5F9;
+    border-radius: 6px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #C4B0F0;
+}
+
+QScrollBar:horizontal {
+    background-color: #F9F5FF;
+    height: 12px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: #D4C5F9;
+    border-radius: 6px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: #C4B0F0;
+}
+
+QScrollBar::add-line, QScrollBar::sub-line {
+    border: none;
+    background: none;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>15</number>
+    </property>
+    <property name="topMargin">
+     <number>15</number>
+    </property>
+    <property name="rightMargin">
+     <number>15</number>
+    </property>
+    <property name="bottomMargin">
+     <number>15</number>
+    </property>
+    <item>
+     <widget class="QGroupBox" name="controlGroup">
+      <property name="title">
+       <string>🚀 Scraping Controls</string>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>130</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="startButton">
+           <property name="text">
+            <string>▶ Start</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pauseResumeButton">
+           <property name="text">
+            <string>⏸ Pause</string>
+           </property>
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="stopButton">
+           <property name="text">
+            <string>⏹ Stop</string>
+           </property>
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="progressLabel">
+           <property name="text">
+            <string>📊 Progress:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="progressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>150</number>
+           </property>
+           <property name="textVisible">
+            <bool>true</bool>
+           </property>
+           <property name="format">
+            <string>%v / 150 pages</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="sortGroup">
+      <property name="title">
+       <string>🔄 Sorting Options</string>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>110</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="sortColumnLabel">
+           <property name="text">
+            <string>📋 Columns:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="sortColumnsList">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::MultiSelection</enum>
+           </property>
+           <property name="flow">
+            <enum>QListView::LeftToRight</enum>
+           </property>
+           <item>
+            <property name="text">
+             <string>Column 1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 3</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 6</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 7</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 8</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="sortAlgoLabel">
+           <property name="text">
+            <string>⚡ Algorithm:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="sortAlgoCombo">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>Quick Sort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Merge Sort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bubble Sort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Heap Sort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Insertion Sort</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="sortButton">
+           <property name="text">
+            <string>✨ Apply Sort</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>32</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="sortTimeLabel">
+           <property name="text">
+            <string>⏱ Time: 0 ms</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="searchGroup">
+      <property name="title">
+       <string>🔍 Search and Filter</string>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>130</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <property name="horizontalSpacing">
+          <number>15</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>10</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="searchColumnLabel">
+           <property name="text">
+            <string>Column:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="searchColumnCombo">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>32</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>Column 1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 3</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 6</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 7</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Column 8</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="operatorLabel">
+           <property name="text">
+            <string>Operator:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QComboBox" name="operatorCombo">
+           <property name="minimumSize">
+            <size>
+             <width>130</width>
+             <height>32</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>Equals</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Contains</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Starts With</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Ends With</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Not Equals</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Greater Than</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Less Than</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QLabel" name="searchValueLabel">
+           <property name="text">
+            <string>Value:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="5">
+          <widget class="QLineEdit" name="searchValueInput">
+           <property name="minimumSize">
+            <size>
+             <width>160</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>Enter value...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="6">
+          <widget class="QPushButton" name="addFilterButton">
+           <property name="text">
+            <string>➕ Add Filter</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>32</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="compositeLabel">
+           <property name="text">
+            <string>Logic:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="3">
+          <layout class="QHBoxLayout" name="radioLayout">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="andRadio">
+             <property name="text">
+              <string>AND</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="orRadio">
+             <property name="text">
+              <string>OR</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="notRadio">
+             <property name="text">
+              <string>NOT</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="5">
+          <widget class="QPushButton" name="applyFilterButton">
+           <property name="text">
+            <string>✓ Apply Filters</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>32</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="6">
+          <widget class="QPushButton" name="clearFilterButton">
+           <property name="text">
+            <string>✕ Clear Filters</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>32</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="dataGroup">
+      <property name="title">
+       <string>📊 Scraped Data</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QTableWidget" name="dataTable">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>false</bool>
+         </property>
+         <attribute name="horizontalHeaderCascadingSectionResizes">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>Column 1</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Column 2</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Column 3</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Column 4</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Column 5</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Column 6</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Column 7</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Column 8</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QMenuBar {
+    background-color: #DFD3F5;
+    color: #5A3D8A;
+    padding: 4px;
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+QMenuBar::item:selected {
+    background-color: #C4B0F0;
+}
+
+QMenu {
+    background-color: #FFFFFF;
+    border: 2px solid #E8DCFF;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+QMenu::item {
+    padding: 6px 24px;
+    border-radius: 4px;
+    color: #5A3D8A;
+}
+
+QMenu::item:selected {
+    background-color: #DFD3F5;
+}
+    </string>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">
+QStatusBar {
+    background-color: #DFD3F5;
+    color: #5A3D8A;
+    font-weight: 500;
+}
+    </string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
